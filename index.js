@@ -25,6 +25,10 @@ function displayFilm(e) {
     fetch(BASE_URL + `/${e.target.id}`)
     .then(res => res.json())
     .then(data => {
-        display.innerHTML = `<img class="resize" src="${data.movie_banner}">`
+        display.innerHTML = 
+        `<img class="resize" src="${data.movie_banner}">
+        <h1>${data.title} <span class="year">${data.release_date}</span></h1>
+        <p>${data.description}</p>`
+
     })
 }

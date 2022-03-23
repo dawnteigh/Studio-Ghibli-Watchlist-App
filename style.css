@@ -1,8 +1,16 @@
 body {
 	display: grid;
-	grid-template-columns: 2fr 8fr
+	grid-template-columns: 2fr 8fr;
+}
+h1 {
+    font-size: 50px;
 }
 .resize {
    height: 500px;
-   width: auto 
+   width: auto;
+}
+.year {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: lighter;
 }
