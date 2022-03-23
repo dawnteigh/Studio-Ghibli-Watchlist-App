@@ -2,3 +2,7 @@ body {
 	display: grid;
 	grid-template-columns: 2fr 8fr
 }
+.resize {
+   height: 500px;
+   width: auto 
+}
