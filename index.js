@@ -38,8 +38,14 @@ function displayFilm(e) {
         <button class="favorite">Add to Favorites</button>`
 
         display.addEventListener('click', (e) => {
+            let endpoint;
                 if (e.target.className === "watch") {
-                    fetch(LOCAL_URL + '/watchlist', {
+                    endpoint = "/watchlist"
+                }
+                else if (e.target.className === "favorite") {
+                    endpoint = "/favorites"
+                }
+                    fetch(LOCAL_URL + endpoint, {
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json",
@@ -55,7 +61,7 @@ function displayFilm(e) {
                         
                     })
                 }
-            })
+        )
     })
 
 }
