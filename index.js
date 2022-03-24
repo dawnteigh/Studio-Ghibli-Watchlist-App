@@ -33,7 +33,7 @@ function displayFilm(e) {
         display.innerHTML = 
         `<img class="resize" src="${image}">
         <h1>${title} <span class="year">${year}</span></h1>
-        <p>${desc}</p>
+        <p class="width">${desc}</p>
         <button class="watch">Add to Watchlist</button>
         <button class="favorite">Add to Favorites</button>`
 
@@ -44,7 +44,7 @@ function displayFilm(e) {
                 }
                 else if (e.target.className === "favorite") {
                     endpoint = "/favorites"
-                }
+                }//Making a post to favorites and then making a different post to watchlist results in two posts to watchlist
                     fetch(LOCAL_URL + endpoint, {
                         method: 'POST',
                         headers: {

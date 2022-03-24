@@ -14,3 +14,10 @@ h1 {
     font-style: italic;
     font-weight: lighter;
 }
+#list-panel {
+    padding-top: 100px;
+    padding-right: 50px;
+}
+.width {
+    width: 800px
+}
