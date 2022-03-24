@@ -89,5 +89,16 @@ function displayList(e) {
         display.innerHTML += `<div class="card"><img class="thumbnail" src="${film.movie_banner}"><br>
         <h3>${film.title}</h3><button class="delete" id="${film.id}">Remove from List</button></div><br>`
     }))
-
+    display.addEventListener("click", (e) => {
+    if (e.target.className === "delete") {
+        fetch(LOCAL_URL + endpoint + `/${e.target.id}`, {
+          method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(res => {
+            e.target.parentElement.remove()
+            console.log(endpoint)
+          })
+      }
+    })
 }
