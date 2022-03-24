@@ -5,9 +5,16 @@ body {
 h1 {
     font-size: 50px;
 }
+ul {
+    list-style-type: none;
+}
 .resize {
    height: 500px;
    width: auto;
+}
+.thumbnail {
+    height: 200px;
+    width: auto;
 }
 .year {
     font-size: 12px;

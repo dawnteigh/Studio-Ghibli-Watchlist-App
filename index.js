@@ -3,6 +3,8 @@ const BASE_URL = "https://ghibliapi.herokuapp.com/films"
 const LOCAL_URL = "http://localhost:3000"
 const sidebar = document.querySelector("#list")
 const display = document.querySelector("#show-panel")
+const wButton = document.querySelector("#watchlist")
+const fButton = document.querySelector("#favslist")
 
 //Startup routine
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,12 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Event Listeners
 sidebar.addEventListener("click", displayFilm)
+wButton.addEventListener("click", displayList)
+fButton.addEventListener("click", displayList)
 
 //Callback functions
 function getFilms(film) {
     const liElement = document.createElement("li")
     liElement.innerHTML =
-    `<a id="${film.id}">${film.title}</a>`
+    `<a id="${film.id}">${film.title}</a><hr>`
     sidebar.append(liElement)
 }
 
@@ -63,5 +67,27 @@ function displayFilm(e) {
                 }
         )
     })
+
+}
+
+function displayList(e) {
+    display.innerHTML = ""
+    let endpoint;
+    let header;
+    if (e.target.id === "watchlist") {
+        endpoint = "/watchlist"
+        header = "My Watchlist"
+    }
+    else if (e.target.id === "favslist") {
+        endpoint = "/favorites"
+        header = "My Favorites"
+    }
+    display.innerHTML = `<h2>${header}</h2>`
+    fetch(LOCAL_URL + endpoint)
+    .then(res => res.json())
+    .then(data => data.forEach(film => {
+        display.innerHTML += `<div class="card"><img class="thumbnail" src="${film.movie_banner}"><br>
+        <h3>${film.title}</h3><button class="delete" id="${film.id}">Remove from List</button></div><br>`
+    }))
 
 }
