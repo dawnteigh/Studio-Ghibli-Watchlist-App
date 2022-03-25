@@ -27,6 +27,7 @@ function getFilms(film) {
 }
 
 function displayFilm(e) {
+    display.innerHTML = ""
     fetch(BASE_URL + `/${e.target.id}`)
     .then(res => res.json())
     .then(data => {
@@ -40,7 +41,7 @@ function displayFilm(e) {
         <p class="width">${desc}</p>
         <button class="watch">Add to Watchlist</button>
         <button class="favorite">Add to Favorites</button>`
-
+        //the event listeners are sticking around, a new one is created every time a new film is clicked
         display.addEventListener('click', (e) => {
             let endpoint;
                 if (e.target.className === "watch") {
@@ -49,6 +50,7 @@ function displayFilm(e) {
                 else if (e.target.className === "favorite") {
                     endpoint = "/favorites"
                 }//Making a post to favorites and then making a different post to watchlist results in two posts to watchlist
+                console.log(e.target)
                     fetch(LOCAL_URL + endpoint, {
                         method: 'POST',
                         headers: {
@@ -74,6 +76,7 @@ function displayList(e) {
     display.innerHTML = ""
     let endpoint;
     let header;
+    
     if (e.target.id === "watchlist") {
         endpoint = "/watchlist"
         header = "My Watchlist"
@@ -87,8 +90,9 @@ function displayList(e) {
     .then(res => res.json())
     .then(data => data.forEach(film => {
         display.innerHTML += `<div class="card"><img class="thumbnail" src="${film.movie_banner}"><br>
-        <h3>${film.title}</h3><button class="delete" id="${film.id}">Remove from List</button></div><br>`
+        <h3>${film.title}</h3><button class="delete" id="${film.id}">Remove from List</button><br><br></div>`
     }))
+    //endpoint is not being changed here, both end points are being accessed
     display.addEventListener("click", (e) => {
     if (e.target.className === "delete") {
         fetch(LOCAL_URL + endpoint + `/${e.target.id}`, {
