@@ -42,7 +42,7 @@ function displayFilm(e) {
         <p class="width">${desc}</p>
         <button class="watch">Add to Watchlist</button>
         <button class="favorite">Add to Favorites</button>`
-            //the event listeners are sticking around, a new one is created every time a new film is clicked
+           
             const addWatch = display.querySelector(`.watch`)
             const addFav = display.querySelector(`.favorite`)
             const postConfig = {
@@ -71,6 +71,7 @@ function displayFilm(e) {
 
 }
 
+//callback function for list buttons
 function displayList(e) {
     display.innerHTML = ""
     let endpoint;
@@ -89,21 +90,20 @@ function displayList(e) {
         .then(res => res.json())
         .then(data => data.forEach(film => {
             display.innerHTML += `<div class="card"><img class="thumbnail" src="${film.movie_banner}"><br>
-        <h3>${film.title}</h3><button class="delete" id="${film.id}">Remove from List</button><br><br></div>`
+        <h3>${film.title}</h3><button class="delete" id="${endpoint + "/" + film.id}">Remove from List</button><br><br></div>`
         }))
-    //endpoint is not being changed here, both end points are being accessed
-    display.addEventListener("click", (e) => {
-        if (e.target.className === "delete") {
-            fetch(LOCAL_URL + endpoint + `/${e.target.id}`, {
-                method: "DELETE"
-            })
-                .then(res => res.json())
-                .then(res => {
-                    e.target.parentElement.remove()
-                    console.log(endpoint)
-                })
-        }
-
-    })
-
 }
+
+//delete button event listener
+document.addEventListener("click", (e) => {
+    if (e.target.className === "delete") {
+        fetch(LOCAL_URL + `${e.target.id}`, {
+            method: "DELETE"
+        })
+            .then(res => res.json())
+            .then(res => {
+                e.target.parentElement.remove()
+            })
+    }
+
+})
