@@ -11,7 +11,17 @@ h1 {
 
 
 a {
-    color:white
+    color:white;
+    font-family: monospace, sans-serif;
+    text-decoration: none;
+}
+
+a:hover {
+    color: gold;
+}
+
+hr {
+    border: 2px solid white;
 }
 .resize {
    height: 500px;
