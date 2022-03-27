@@ -91,6 +91,7 @@ function displayFilm(e) {
                 e.target.disabled = true
             })
         })
+        .catch(error => alert("Could not complete your request. Check your connection and try again."))
     }
 }
 
