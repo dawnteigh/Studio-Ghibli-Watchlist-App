@@ -1,12 +1,17 @@
 body {
+    background-color: black;
+    color: white;
 	display: grid;
 	grid-template-columns: 2fr 8fr;
 }
 h1 {
     font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-ul {
-    list-style-type: none;
+
+
+a {
+    color:white
 }
 .resize {
    height: 500px;
@@ -21,9 +26,20 @@ ul {
     font-style: italic;
     font-weight: lighter;
 }
+.title {
+    padding-left: 50px;
+}
 #list-panel {
+    margin: 0 auto;
+    text-align: center;
     padding-top: 100px;
-    padding-right: 50px;
+    background-color: black;
+}
+#show-panel {
+    background-color: white;
+    color: black;
+    width: fit-content;
+    padding: 50px;
 }
 .width {
     width: 800px

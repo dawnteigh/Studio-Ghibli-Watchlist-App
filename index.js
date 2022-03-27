@@ -1,7 +1,7 @@
 //Global Variables
 const BASE_URL = "https://ghibliapi.herokuapp.com/films"
 const LOCAL_URL = "http://localhost:3000"
-const sidebar = document.querySelector("#list")
+const sidebar = document.querySelector("#list-panel")
 const display = document.querySelector("#show-panel")
 const wButton = document.querySelector("#watchlist")
 const fButton = document.querySelector("#favslist")
@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(data => data.forEach(film => getFilms(film))
         )
+        .catch(error => alert("Failed to load list of films, refresh the page to try again."))
 })
 
 //Event Listeners
@@ -32,14 +33,17 @@ document.addEventListener("click", (e) => {
 })
 
 //Callback functions
+//DOMContentLoaded callback
 function getFilms(film) {
-    const liElement = document.createElement("li")
-    liElement.innerHTML =
-        `<a id="${film.id}">${film.title}</a><hr>`
-    sidebar.append(liElement)
+    const pElement = document.createElement("p")
+    pElement.innerHTML =
+        `<a href="#" class="film" id="${film.id}">${film.title}</a><hr>`
+    sidebar.append(pElement)
 }
 
+//callback for sidebar event listener
 function displayFilm(e) {
+    if (e.target.className === "film") {
     display.innerHTML = ""
     fetch(BASE_URL + `/${e.target.id}`)
         .then(res => res.json())
@@ -86,10 +90,8 @@ function displayFilm(e) {
                 .catch(error => alert(`${title} is already in your favorites!`))
                 e.target.disabled = true
             })
-
-            //try a fetch to the ID, then post if not found
         })
-
+    }
 }
 
 //callback function for list buttons
