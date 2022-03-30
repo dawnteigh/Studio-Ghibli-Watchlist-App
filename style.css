@@ -14,10 +14,11 @@ h1 {
 }
 
 /* Static title properties */
-.title {
+#title {
     font-size: 65px;
     font-style: bold;
     padding-left: 50px;
+    cursor: pointer;
     }
 
 .kanji {

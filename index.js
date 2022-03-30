@@ -5,7 +5,7 @@ const sidebar = document.querySelector("#list-panel")
 const display = document.querySelector("#show-panel")
 const wButton = document.querySelector("#watchlist")
 const fButton = document.querySelector("#favslist")
-const empty = document.querySelector(".empty")
+const title = document.querySelector("#title")
 
 //Startup routine
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 sidebar.addEventListener("click", displayFilm)
 wButton.addEventListener("click", displayList)
 fButton.addEventListener("click", displayList)
+title.addEventListener("click", displayHome)
 
 //Delete functionality
 document.addEventListener("click", (e) => {
