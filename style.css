@@ -1,14 +1,19 @@
+/* Main elements */
 body {
     background-color: black;
     color: white;
 	display: grid;
 	grid-template-columns: 2fr 8fr;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 h1 {
     font-size: 50px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 0.5;
 }
+
+/* Static title properties */
 .title {
     font-size: 65px;
     font-style: bold;
@@ -22,12 +27,42 @@ h1 {
     letter-spacing: 10px;
 }
 
+/* Display elements */
 #welcome {
     font-weight: lighter;
     width: 800px;
     line-height: 1.2;
 }
 
+#show-panel {
+    background-color: white;
+    color: black;
+    width: fit-content;
+    padding: 50px;
+}
+
+.year {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.width {
+    width: 800px;
+    font-size: 18px;
+}
+
+.resize {
+    height: 500px;
+    width: auto;
+ }
+
+ .thumbnail {
+    height: 200px;
+    width: auto;
+}
+
+/* Sidebar elements */
 a {
     color:white;
     font-family: monospace, sans-serif;
@@ -41,19 +76,6 @@ a:hover {
 hr {
     border: 2px solid white;
 }
-.resize {
-   height: 500px;
-   width: auto;
-}
-.thumbnail {
-    height: 200px;
-    width: auto;
-}
-.year {
-    font-size: 12px;
-    font-style: italic;
-    font-weight: lighter;
-}
 
 #list-panel {
     margin: 0 auto;
@@ -61,13 +83,7 @@ hr {
     padding-top: 100px;
     background-color: black;
 }
-#show-panel {
-    background-color: white;
-    color: black;
-    width: fit-content;
-    padding: 50px;
-}
-.width {
-    width: 800px;
-    font-size: 18px;
-}
+
+
+
+

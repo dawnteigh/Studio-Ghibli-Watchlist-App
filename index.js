@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(res => res.json())
         .then(data => data.forEach(film => getFilms(film))
         )
-        .catch(error => alert("Failed to load list of films, refresh the page to try again."))
+        .catch(error => {
+            alert("Failed to load list of films, check your internet connection and refresh to try again.");
+            console.log(`Failed to fetch data from ${BASE_URL}.`)
+        })
 })
 
 //Event Listeners
