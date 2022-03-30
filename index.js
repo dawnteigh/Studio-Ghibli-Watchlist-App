@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => {
             alert("Failed to load list of films, check your internet connection and refresh to try again.");
         })
+    displayHome()
 })
 
 //Event Listeners
@@ -37,7 +38,20 @@ document.addEventListener("click", (e) => {
 })
 
 //Callback functions
-//DOMContentLoaded callback
+//DOMContentLoaded callbacks
+function displayHome(e) {
+    display.innerHTML = `<img class="resize"
+    src="https://helios-i.mashable.com/imagery/articles/04zZIf7qP6mXjTJwwEY1zgi/images-3.fit_lim.size_2000x.v1643737370.jpg"><br>
+<center>
+    <h1>Welcome to Ghibli Watch!</h1>
+    <h2 id="welcome">
+        Your companion app for tracking and discovering beautifully animated feature films from Studio
+        Ghibli Inc. is primed and ready for use!<br>
+        Choose a title on the left to get started.
+    </h2>
+</center>`
+}
+
 function getFilms(film) {
     const pElement = document.createElement("p")
     pElement.innerHTML =
