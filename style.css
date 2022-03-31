@@ -91,6 +91,7 @@ button:disabled {
  .thumbnail {
     height: 250px;
     width: auto;
+    cursor: pointer;
 }
 
 .card {

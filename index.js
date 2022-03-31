@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 //Event Listeners
-sidebar.addEventListener("click", displayFilm)
+document.addEventListener("click", displayFilm)
 wButton.addEventListener("click", displayList)
 fButton.addEventListener("click", displayList)
 title.addEventListener("click", displayHome)
@@ -62,7 +62,7 @@ function getFilms(film) {
 
 //callback for sidebar event listener
 function displayFilm(e) {
-    if (e.target.className === "film") {
+    if ((e.target.className === "film") || (e.target.className === "thumbnail")) {
         display.innerHTML = ""
         fetch(BASE_URL + `/${e.target.id}`)
             .then(res => res.json())
@@ -137,7 +137,7 @@ function displayList(e) {
             }
             else {
                 data.forEach(film => {
-                    display.innerHTML += `<div class="card"><img class="thumbnail" src="${film.movie_banner}"><br>
+                    display.innerHTML += `<div class="card"><img id="${film.id}" class="thumbnail" src="${film.movie_banner}"><br>
         <h3>${film.title}</h3><button class="delete" id="${endpoint + "/" + film.id}">Remove from List</button><br><br></div>`
                 })
             }
