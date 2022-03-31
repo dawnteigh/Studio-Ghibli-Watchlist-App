@@ -26,7 +26,7 @@ Next, open up the index.html file in your browser.
 When the application loads, a list of Studio Ghibli animated films will be clickable on the left-hand side of the screen.
 Clicking on one will bring up a short description of the film, and from there you will be able to add it to your favorites or watchlist.
 
-You can then view your lists by using the buttons in the sidebar. The list view also allows you to remove films, so keeping your watchlist up to date is a breeze.
+You can then view your lists by using the buttons atop the sidebar. While in list view, you can simply click the image of a film to display its info again. The list view also allows you to remove films, so keeping your watchlist up to date is a breeze.
 
 ## Acknowledgements
 
