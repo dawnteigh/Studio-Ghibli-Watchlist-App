@@ -79,6 +79,7 @@ button:disabled {
     color: black;
     width: fit-content;
     padding: 50px;
+    border: 5px inset red;
 }
 
 .year {
@@ -110,7 +111,7 @@ button:disabled {
 .card {
     background-color: black;
     color: white;
-    border: 3px inset red;
+    border: 2px inset red;
     padding: 10px;
     margin: 15px;
     box-shadow: 10px 10px 5px black;
