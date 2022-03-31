@@ -13,6 +13,18 @@ h1 {
     line-height: 0.5;
 }
 
+button {
+    background-color: red;
+    border: 3px groove rgba(255, 0, 0, 0.281);
+    border-radius: 4px;
+    color: white;
+    padding: 2px 4px;
+    text-align: center;
+    
+    font-size: 16px;
+}
+
+
 /* Static title properties */
 #title {
     font-size: 65px;
@@ -26,6 +38,7 @@ h1 {
     font-style: italic;
     font-weight: lighter;
     letter-spacing: 10px;
+    color: red;
 }
 
 /* Display elements */
@@ -68,11 +81,12 @@ h1 {
 }
 
 .card {
-    background-color: lightgray;
-    border: 3px inset gold;
+    background-color: black;
+    color: white;
+    border: 3px inset red;
     padding: 10px;
     margin: 15px;
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 10px 5px black;
 }
 /* Sidebar elements */
 a {
