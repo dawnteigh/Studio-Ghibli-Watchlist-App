@@ -35,6 +35,11 @@ document.addEventListener("click", (e) => {
             .then(res => {
                 e.target.parentElement.remove()
             })
+            .then(res => {
+                if (document.querySelector(".card") === null) {
+                    display.innerHTML += `<p class="empty">You haven't added anything to this list yet; select a film and get started!</p>`
+                }
+            })
     }
 })
 
