@@ -28,6 +28,8 @@ Clicking on one will bring up a short description of the film, and from there yo
 
 You can then view your lists by using the buttons atop the sidebar. While in list view, you can simply click the image of a film to display its info again. The list view also allows you to remove films, so keeping your watchlist up to date is a breeze.
 
+[This video](https://youtu.be/GUnEGkP5Dsg) helps demonstrate the functionality of the app.
+
 ## Acknowledgements
 
 This app makes use of the [Studio Ghibli API](https://www.npmjs.com/package/json-server).
