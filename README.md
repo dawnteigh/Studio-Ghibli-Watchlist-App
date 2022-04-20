@@ -32,4 +32,6 @@ You can then view your lists by using the buttons atop the sidebar. While in lis
 
 ## Acknowledgements
 
+Home page picture pulled from [this Mashable article](https://mashable.com/article/studio-ghibli-theme-park-japan-november).
+
 This app makes use of the [Studio Ghibli API](https://www.npmjs.com/package/json-server).
