@@ -11,7 +11,7 @@ const title = document.querySelector("#title")
 document.addEventListener("DOMContentLoaded", () => {
     fetch(BASE_URL)
         .then(res => res.json())
-        .then(data => data.forEach(film => getFilms(film))
+        .then(data => data.forEach(film => renderFilmLink(film))
         )
         .catch(error => {
             alert("Failed to load list of films, check your internet connection and refresh to try again.");
@@ -47,7 +47,7 @@ document.addEventListener("click", (e) => {
 //DOMContentLoaded callbacks
 function displayHome(e) {
     display.innerHTML = `<img class="resize"
-    src="https://helios-i.mashable.com/imagery/articles/04zZIf7qP6mXjTJwwEY1zgi/images-3.fit_lim.size_2000x.v1643737370.jpg"><br>
+    src="https://helios-i.mashable.com/imagery/articles/04zZIf7qP6mXjTJwwEY1zgi/images-3.fit_lim.size_2000x.v1643737370.jpg" alt="Welcome to Ghibli Watch!"><br>
 <center>
     <h1>Welcome to Ghibli Watch!</h1>
     <h2 id="welcome">
@@ -58,7 +58,7 @@ function displayHome(e) {
 </center>`
 }
 
-function getFilms(film) {
+function renderFilmLink(film) {
     const pElement = document.createElement("p")
     pElement.innerHTML =
         `<a href="#" class="film" id="${film.id}">${film.title}</a><hr>`
@@ -77,8 +77,9 @@ function displayFilm(e) {
                 let year = data.release_date
                 let desc = data.description
                 let eyeD = data.id
+                let poster = data.image
                 display.innerHTML =
-                    `<img class="resize" src="${image}">
+                    `<img class="resize" alt="${title}" src="${image}">
         <h1>${title} <span class="year">${year}</span></h1>
         <p class="width">${desc}</p>
         <button class="watch">Add to Watchlist</button>
@@ -99,7 +100,8 @@ function displayFilm(e) {
                         "title": title,
                         "release_date": year,
                         "description": desc,
-                        "id": eyeD
+                        "id": eyeD,
+                        "movie_poster": poster
                     })
                 }
                 addWatch.addEventListener('click', (e) => {
@@ -133,7 +135,9 @@ function displayList(e) {
         endpoint = "/favorites"
         header = "My Favorites"
     }
-    display.innerHTML = `<h2>${header}</h2>`
+    display.innerHTML = `<h2>${header}</h2>
+                        <div class="listgrid"></div>`
+    const list = display.querySelector(".listgrid")
     fetch(LOCAL_URL + endpoint)
         .then(res => res.json())
         .then(data => {
@@ -142,7 +146,7 @@ function displayList(e) {
             }
             else {
                 data.forEach(film => {
-                    display.innerHTML += `<div class="card"><img id="${film.id}" class="thumbnail" src="${film.movie_banner}"><br>
+                    list.innerHTML += `<div class="card"><img id="${film.id}" alt=${film.title} class="thumbnail" src="${film.movie_poster}"><br>
         <h3>${film.title}</h3><button class="delete" id="${endpoint + "/" + film.id}">Remove from List</button><br><br></div>`
                 })
             }

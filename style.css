@@ -103,7 +103,7 @@ button:disabled {
  }
 
  .thumbnail {
-    height: 250px;
+    height: 400px;
     width: auto;
     cursor: pointer;
 }
@@ -115,6 +115,11 @@ button:disabled {
     padding: 10px;
     margin: 15px;
     box-shadow: 10px 10px 5px black;
+}
+
+.listgrid {
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
 }
 
 /* Sidebar elements */
