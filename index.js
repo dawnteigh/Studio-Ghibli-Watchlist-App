@@ -1,4 +1,3 @@
-//Global Variables
 const BASE_URL = "https://ghibliapi.herokuapp.com/films";
 const LOCAL_URL = "http://localhost:3000";
 const sidebar = document.querySelector("#list-panel");
@@ -7,7 +6,6 @@ const wButton = document.querySelector("#watchlist");
 const fButton = document.querySelector("#favslist");
 const title = document.querySelector("#title");
 
-//Startup routine
 document.addEventListener("DOMContentLoaded", () => {
   fetch(BASE_URL)
     .then((res) => res.json())
@@ -20,13 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   displayHome();
 });
 
-//Event Listeners
 document.addEventListener("click", displayFilm);
 wButton.addEventListener("click", displayList);
 fButton.addEventListener("click", displayList);
 title.addEventListener("click", displayHome);
 
-//Delete functionality
 document.addEventListener("click", (e) => {
   if (e.target.className === "delete") {
     fetch(LOCAL_URL + `${e.target.id}`, {
@@ -45,8 +41,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-//Callback functions
-//DOMContentLoaded callbacks
 function displayHome(e) {
   display.innerHTML = `<img class="resize"
     src="https://helios-i.mashable.com/imagery/articles/04zZIf7qP6mXjTJwwEY1zgi/images-3.fit_lim.size_2000x.v1643737370.jpg" alt="Welcome to Ghibli Watch!"><br>
@@ -66,7 +60,6 @@ function renderFilmLink(film) {
   sidebar.append(pElement);
 }
 
-//callback for sidebar event listener
 function displayFilm(e) {
   if (e.target.className === "film" || e.target.className === "thumbnail") {
     display.innerHTML = "";
@@ -124,7 +117,6 @@ function displayFilm(e) {
   }
 }
 
-//callback function for list buttons
 function displayList(e) {
   display.innerHTML = "";
   let endpoint;
